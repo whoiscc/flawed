@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A2BAB47B21F30C6F000BB287 /* Flawed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2BAB47121F30C6F000BB287 /* Flawed.framework */; };
-		A2BAB48021F30C6F000BB287 /* FlawedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BAB47F21F30C6F000BB287 /* FlawedTests.swift */; };
+		A2BAB48021F30C6F000BB287 /* GrammarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BAB47F21F30C6F000BB287 /* GrammarTests.swift */; };
 		A2BAB48221F30C6F000BB287 /* Flawed.h in Headers */ = {isa = PBXBuildFile; fileRef = A2BAB47421F30C6F000BB287 /* Flawed.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2BAB48C21F30C86000BB287 /* Grammar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BAB48B21F30C86000BB287 /* Grammar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +28,9 @@
 		A2BAB47421F30C6F000BB287 /* Flawed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flawed.h; sourceTree = "<group>"; };
 		A2BAB47521F30C6F000BB287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2BAB47A21F30C6F000BB287 /* FlawedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlawedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2BAB47F21F30C6F000BB287 /* FlawedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlawedTests.swift; sourceTree = "<group>"; };
+		A2BAB47F21F30C6F000BB287 /* GrammarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarTests.swift; sourceTree = "<group>"; };
 		A2BAB48121F30C6F000BB287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2BAB48B21F30C86000BB287 /* Grammar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grammar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				A2BAB47421F30C6F000BB287 /* Flawed.h */,
 				A2BAB47521F30C6F000BB287 /* Info.plist */,
+				A2BAB48B21F30C86000BB287 /* Grammar.swift */,
 			);
 			path = Flawed;
 			sourceTree = "<group>";
@@ -80,7 +83,7 @@
 		A2BAB47E21F30C6F000BB287 /* FlawedTests */ = {
 			isa = PBXGroup;
 			children = (
-				A2BAB47F21F30C6F000BB287 /* FlawedTests.swift */,
+				A2BAB47F21F30C6F000BB287 /* GrammarTests.swift */,
 				A2BAB48121F30C6F000BB287 /* Info.plist */,
 			);
 			path = FlawedTests;
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					A2BAB47021F30C6F000BB287 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					A2BAB47921F30C6F000BB287 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2BAB48C21F30C86000BB287 /* Grammar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2BAB48021F30C6F000BB287 /* FlawedTests.swift in Sources */,
+				A2BAB48021F30C6F000BB287 /* GrammarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +345,7 @@
 		A2BAB48621F30C6F000BB287 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -358,6 +364,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cowsay.Flawed;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -365,6 +372,7 @@
 		A2BAB48721F30C6F000BB287 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -390,6 +398,7 @@
 		A2BAB48921F30C6F000BB287 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = FlawedTests/Info.plist;
@@ -407,6 +416,7 @@
 		A2BAB48A21F30C6F000BB287 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = FlawedTests/Info.plist;

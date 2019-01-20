@@ -33,8 +33,14 @@ public enum LangNode {
     }
 }
 
+public enum ExpectedToken {
+    case number
+    case identifier
+    case assign
+}
+
 public enum ParseError: Error {
-    case unexpectedToken(at: Int, expected: [Token])
+    case unexpectedToken(at: Int, expected: [ExpectedToken])
 }
 
 public func parse(tokens: [Token]) throws -> LangNode.Statement {
@@ -48,12 +54,12 @@ func parseProgram(
 ) throws -> LangNode.Statement {
     var statements = [LangNode.Statement]()
     while true {
-        if case .end = source[offset] {
+        if case .end = source[offset].kind {
             break
         }
         let stat = try parseStat(source, &offset)
         statements.append(stat)
-        if case .newline = source[offset] {
+        if case .newline = source[offset].kind {
             offset += 1
         }
     }
@@ -63,24 +69,24 @@ func parseProgram(
 func parseStat(
     _ source: [Token], _ offset: inout Int
 ) throws -> LangNode.Statement {
-    switch source[offset] {
+    switch source[offset].kind {
     case .identifier:
         return try parseAssign(source, &offset)
     // TODO
     default:
         throw ParseError.unexpectedToken(
-            at: offset, expected: [.identifier("<any>")])
+            at: offset, expected: [.identifier])
     }
 }
 
 func parseAssign(
     _ source: [Token], _ offset: inout Int
 ) throws -> LangNode.Statement {
-    guard case .identifier(let name) = source[offset] else {
+    guard case .identifier(let name) = source[offset].kind else {
         preconditionFailure()
     }
     offset += 1
-    guard case .assign = source[offset] else {
+    guard case .assign = source[offset].kind else {
         throw ParseError.unexpectedToken(
             at: offset, expected: [.assign])
     }
@@ -93,7 +99,7 @@ func parseExpr(
     _ source: [Token], _ offset: inout Int
 ) throws -> LangNode.Expression {
     let left = try parseExpr2(source, &offset)
-    switch (source[offset]) {
+    switch (source[offset].kind) {
     case .operator_(let op) where "+-".contains(op.first!):
         offset += 1
         let right = try parseExpr(source, &offset)
@@ -107,7 +113,7 @@ func parseExpr2(
     _ source: [Token], _ offset: inout Int
 ) throws -> LangNode.Expression {
     let left = try parseExpr3(source, &offset)
-    switch (source[offset]) {
+    switch (source[offset].kind) {
     case .operator_(let op) where "*/".contains(op.first!):
         offset += 1
         let right = try parseExpr2(source, &offset)
@@ -120,7 +126,7 @@ func parseExpr2(
 func parseExpr3(
     _ source: [Token], _ offset: inout Int
 ) throws -> LangNode.Expression {
-    if case .operator_(let op) = source[offset] {
+    if case .operator_(let op) = source[offset].kind {
         offset += 1
         let expr = try parseExpr4(source, &offset)
         return .calling(.identifier(op), [expr])
@@ -133,7 +139,7 @@ func parseExpr4(
     _ source: [Token], _ offset: inout Int
 ) throws -> LangNode.Expression {
     let firstFunc = try parseExpr5(source, &offset)
-    if case .open = source[offset] {
+    if case .open = source[offset].kind {
         let callingList = try parseExpr4_(source, &offset)
         var expr = firstFunc
         for argList in callingList {
@@ -149,17 +155,17 @@ func parseExpr4_(
     _ source: [Token], _ offset: inout Int
 ) throws -> [[LangNode.Expression]] {
     var callingList = [[LangNode.Expression]]()
-    while case .open = source[offset] {
+    while case .open = source[offset].kind {
         offset += 1
         var argList = [LangNode.Expression]()
         while true {
-            if case .close = source[offset] {
+            if case .close = source[offset].kind {
                 offset += 1
                 break
             }
             let expr = try parseExpr(source, &offset)
             argList.append(expr)
-            if case .comma = source[offset] {
+            if case .comma = source[offset].kind {
                 offset += 1
             }
         }
@@ -171,7 +177,7 @@ func parseExpr4_(
 func parseExpr5(
     _ source: [Token], _ offset: inout Int
 ) throws -> LangNode.Expression {
-    switch (source[offset]) {
+    switch (source[offset].kind) {
     case .number(let num):
         offset += 1
         return .number(num)
@@ -180,6 +186,6 @@ func parseExpr5(
         return .identifier(id)
     default:
         throw ParseError.unexpectedToken(
-            at: offset, expected: [.number(0), .identifier("<any>")])
+            at: offset, expected: [.number, .identifier])
     }
 }

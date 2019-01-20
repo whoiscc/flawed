@@ -15,20 +15,20 @@ class TokenTests: XCTestCase {
         let sources: [(String, [Token])] = [(
             "1 + 2",
             [
-                .number(1),
-                .operator_("+"),
-                .number(2),
-                .end,
+                Token(kind: .number(1), beginLine: 1, beginColumn: 1, endLine: 1, endColumn: 2),
+                Token(kind: .operator_("+"), beginLine: 1, beginColumn: 3, endLine: 1, endColumn: 4),
+                Token(kind: .number(2), beginLine: 1, beginColumn: 5, endLine: 1, endColumn: 6),
+                Token(kind: .end, beginLine: 1, beginColumn: 6, endLine: 1, endColumn: 7),
             ]
         ), (
             "x <- x + 1",
             [
-                .identifier("x"),
-                .assign,
-                .identifier("x"),
-                .operator_("+"),
-                .number(1),
-                .end,
+                Token(kind: .identifier("x"), beginLine: 1, beginColumn: 1, endLine: 1, endColumn: 2),
+                Token(kind: .assign, beginLine: 1, beginColumn: 3, endLine: 1, endColumn: 5),
+                Token(kind: .identifier("x"), beginLine: 1, beginColumn: 6, endLine: 1, endColumn: 7),
+                Token(kind: .operator_("+"), beginLine: 1, beginColumn: 8, endLine: 1, endColumn: 9),
+                Token(kind: .number(1), beginLine: 1, beginColumn: 10, endLine: 1, endColumn: 11),
+                Token(kind: .end, beginLine: 1, beginColumn: 11, endLine: 1, endColumn: 12),
             ]
         )]
         for (source, expectedToken) in sources {

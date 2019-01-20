@@ -9,10 +9,14 @@
 import XCTest
 @testable import Flawed
 
+func fakePos(_ kind: Token.Kind) -> Token {
+    return Token(kind: kind, beginLine: 0, beginColumn: 0, endLine: 0, endColumn: 0)
+}
+
 class GrammarTests: XCTestCase {
     
     func testParse() {
-        let sources: [([Token], LangNode.Statement)] = [(
+        let sources: [([Token.Kind], LangNode.Statement)] = [(
             [
                 .identifier("x"),
                 .assign,
@@ -100,13 +104,13 @@ class GrammarTests: XCTestCase {
             ])
         )]
         for (source, expectedNode) in sources {
-            let node: LangNode.Statement? = try? parse(tokens: source)
+            let node: LangNode.Statement? = try? parse(tokens: source.map(fakePos))
             XCTAssertEqual("\(node!)", "\(expectedNode)")
         }
     }
     
     func testParseError() {
-        let sources: [[Token]] = [
+        let sources: [[Token.Kind]] = [
             [
                 .assign,
                 .end,
@@ -118,21 +122,25 @@ class GrammarTests: XCTestCase {
             ]
         ]
         for source in sources {
-            XCTAssertThrowsError(try parse(tokens: source))
+            XCTAssertThrowsError(try parse(tokens: source.map(fakePos)))
         }
     }
     
     func testParsePerformance() {
-        var longSource: [Token] = [.identifier("x"), .assign, .number(0)]
+        var longSource: [Token] = [
+            fakePos(.identifier("x")),
+            fakePos(.assign),
+            fakePos(.number(0))
+        ]
         for i in 0 ..< 10000 {
             if Bool.random() {
-                longSource.append(.operator_("*"))
+                longSource.append(fakePos(.operator_("*")))
             } else {
-                longSource.append(.operator_("+"))
+                longSource.append(fakePos(.operator_("+")))
             }
-            longSource.append(.number(i + 1))
+            longSource.append(fakePos(.number(i + 1)))
         }
-        longSource.append(.end)
+        longSource.append(fakePos(.end))
         self.measure {
             _ = try! parse(tokens: longSource)
         }

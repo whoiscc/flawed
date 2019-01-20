@@ -10,6 +10,7 @@ import XCTest
 @testable import Flawed
 
 class GrammarTests: XCTestCase {
+    
     func testParse() {
         let sources: [([Token], LangNode.Statement)] = [(
             [
@@ -99,7 +100,7 @@ class GrammarTests: XCTestCase {
             ])
         )]
         for (source, expectedNode) in sources {
-            let node: LangNode.Statement? = try? parse(source: source)
+            let node: LangNode.Statement? = try? parse(tokens: source)
             XCTAssertEqual("\(node!)", "\(expectedNode)")
         }
     }
@@ -117,7 +118,7 @@ class GrammarTests: XCTestCase {
             ]
         ]
         for source in sources {
-            XCTAssertThrowsError(try parse(source: source))
+            XCTAssertThrowsError(try parse(tokens: source))
         }
     }
     
@@ -133,7 +134,7 @@ class GrammarTests: XCTestCase {
         }
         longSource.append(.end)
         self.measure {
-            let _ = try! parse(source: longSource)
+            _ = try! parse(tokens: longSource)
         }
     }
     

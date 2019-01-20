@@ -9,7 +9,7 @@
 import Foundation
 
 
-// program : stat `\n` program | stat
+// program : stat `\n` program | stat `\n` | stat
 // stat : assign
 // assign : ID `<-` expr
 // expr : expr2 OP1 expr | expr2
@@ -20,37 +20,26 @@ import Foundation
 // expr4' : `(` arg `)` expr4' | <e>
 // arg : expr `,` arg | <e>
 // expr5 : NUM | ID | `(` expr `)`
-enum LangNode {
-    enum Statement {
+public enum LangNode {
+    public enum Statement {
         case assignment(String, Expression)
         indirect case condition(Expression, Statement, Statement)
         indirect case block([Statement])
     }
-    enum Expression {
+    public enum Expression {
         case number(Int)
         case identifier(String)
         indirect case calling(Expression, [Expression])
     }
 }
 
-enum Token {
-    case number(Int)
-    case identifier(String)
-    case open, close
-    case assign
-    case comma
-    case operator_(String)
-    case newline
-    case end
-}
-
-enum ParseError: Error {
+public enum ParseError: Error {
     case unexpectedToken(at: Int, expected: [Token])
 }
 
-func parse(source: [Token]) throws -> LangNode.Statement {
+public func parse(tokens: [Token]) throws -> LangNode.Statement {
     var _offset = 0
-    let node = try parseProgram(source, &_offset)
+    let node = try parseProgram(tokens, &_offset)
     return node
 }
 

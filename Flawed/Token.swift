@@ -99,6 +99,8 @@ public func scan(source content: String) throws -> [Token] {
                 } else {
                     tokens.append(source.forwardToken(.newline))
                 }
+            } else {
+                source.forward()
             }
         case "(":
             tokens.append(source.forwardToken(.open))

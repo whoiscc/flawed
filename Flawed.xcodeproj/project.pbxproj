@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A295CC2921F5A3810079BBB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295CC2821F5A3810079BBB9 /* AppDelegate.swift */; };
+		A295CC2B21F5A3810079BBB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295CC2A21F5A3810079BBB9 /* ViewController.swift */; };
+		A295CC2D21F5A3820079BBB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A295CC2C21F5A3820079BBB9 /* Assets.xcassets */; };
+		A295CC3021F5A3820079BBB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A295CC2E21F5A3820079BBB9 /* Main.storyboard */; };
+		A295CC3C21F5A3830079BBB9 /* FlawedToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295CC3B21F5A3830079BBB9 /* FlawedToolTests.swift */; };
+		A295CC4721F5A3830079BBB9 /* FlawedToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295CC4621F5A3830079BBB9 /* FlawedToolUITests.swift */; };
+		A295CC5421F5B4660079BBB9 /* Flawed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2BAB47121F30C6F000BB287 /* Flawed.framework */; };
+		A295CC5521F5B4660079BBB9 /* Flawed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2BAB47121F30C6F000BB287 /* Flawed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A2BAB47B21F30C6F000BB287 /* Flawed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2BAB47121F30C6F000BB287 /* Flawed.framework */; };
 		A2BAB48021F30C6F000BB287 /* GrammarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BAB47F21F30C6F000BB287 /* GrammarTests.swift */; };
 		A2BAB48221F30C6F000BB287 /* Flawed.h in Headers */ = {isa = PBXBuildFile; fileRef = A2BAB47421F30C6F000BB287 /* Flawed.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -16,6 +24,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A295CC3821F5A3830079BBB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2BAB46821F30C6F000BB287 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A295CC2521F5A3810079BBB9;
+			remoteInfo = FlawedTool;
+		};
+		A295CC4321F5A3830079BBB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2BAB46821F30C6F000BB287 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A295CC2521F5A3810079BBB9;
+			remoteInfo = FlawedTool;
+		};
+		A295CC5621F5B4660079BBB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2BAB46821F30C6F000BB287 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2BAB47021F30C6F000BB287;
+			remoteInfo = Flawed;
+		};
 		A2BAB47C21F30C6F000BB287 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A2BAB46821F30C6F000BB287 /* Project object */;
@@ -25,7 +54,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A295CC5821F5B4660079BBB9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A295CC5521F5B4660079BBB9 /* Flawed.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A295CC2621F5A3810079BBB9 /* FlawedTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlawedTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A295CC2821F5A3810079BBB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A295CC2A21F5A3810079BBB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A295CC2C21F5A3820079BBB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A295CC2F21F5A3820079BBB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A295CC3121F5A3820079BBB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A295CC3221F5A3820079BBB9 /* FlawedTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlawedTool.entitlements; sourceTree = "<group>"; };
+		A295CC3721F5A3820079BBB9 /* FlawedToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlawedToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A295CC3B21F5A3830079BBB9 /* FlawedToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlawedToolTests.swift; sourceTree = "<group>"; };
+		A295CC3D21F5A3830079BBB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A295CC4221F5A3830079BBB9 /* FlawedToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlawedToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A295CC4621F5A3830079BBB9 /* FlawedToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlawedToolUITests.swift; sourceTree = "<group>"; };
+		A295CC4821F5A3830079BBB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2BAB47121F30C6F000BB287 /* Flawed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flawed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BAB47421F30C6F000BB287 /* Flawed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flawed.h; sourceTree = "<group>"; };
 		A2BAB47521F30C6F000BB287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,6 +94,28 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A295CC2321F5A3810079BBB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A295CC5421F5B4660079BBB9 /* Flawed.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A295CC3421F5A3820079BBB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A295CC3F21F5A3830079BBB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2BAB46E21F30C6F000BB287 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,12 +134,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A295CC2721F5A3810079BBB9 /* FlawedTool */ = {
+			isa = PBXGroup;
+			children = (
+				A295CC2821F5A3810079BBB9 /* AppDelegate.swift */,
+				A295CC2A21F5A3810079BBB9 /* ViewController.swift */,
+				A295CC2C21F5A3820079BBB9 /* Assets.xcassets */,
+				A295CC2E21F5A3820079BBB9 /* Main.storyboard */,
+				A295CC3121F5A3820079BBB9 /* Info.plist */,
+				A295CC3221F5A3820079BBB9 /* FlawedTool.entitlements */,
+			);
+			path = FlawedTool;
+			sourceTree = "<group>";
+		};
+		A295CC3A21F5A3830079BBB9 /* FlawedToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				A295CC3B21F5A3830079BBB9 /* FlawedToolTests.swift */,
+				A295CC3D21F5A3830079BBB9 /* Info.plist */,
+			);
+			path = FlawedToolTests;
+			sourceTree = "<group>";
+		};
+		A295CC4521F5A3830079BBB9 /* FlawedToolUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A295CC4621F5A3830079BBB9 /* FlawedToolUITests.swift */,
+				A295CC4821F5A3830079BBB9 /* Info.plist */,
+			);
+			path = FlawedToolUITests;
+			sourceTree = "<group>";
+		};
+		A295CC5221F5B3CC0079BBB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A2BAB46721F30C6F000BB287 = {
 			isa = PBXGroup;
 			children = (
 				A2BAB47321F30C6F000BB287 /* Flawed */,
 				A2BAB47E21F30C6F000BB287 /* FlawedTests */,
+				A295CC2721F5A3810079BBB9 /* FlawedTool */,
+				A295CC3A21F5A3830079BBB9 /* FlawedToolTests */,
+				A295CC4521F5A3830079BBB9 /* FlawedToolUITests */,
 				A2BAB47221F30C6F000BB287 /* Products */,
+				A295CC5221F5B3CC0079BBB9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +190,9 @@
 			children = (
 				A2BAB47121F30C6F000BB287 /* Flawed.framework */,
 				A2BAB47A21F30C6F000BB287 /* FlawedTests.xctest */,
+				A295CC2621F5A3810079BBB9 /* FlawedTool.app */,
+				A295CC3721F5A3820079BBB9 /* FlawedToolTests.xctest */,
+				A295CC4221F5A3830079BBB9 /* FlawedToolUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +232,61 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A295CC2521F5A3810079BBB9 /* FlawedTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A295CC4F21F5A3830079BBB9 /* Build configuration list for PBXNativeTarget "FlawedTool" */;
+			buildPhases = (
+				A295CC2221F5A3810079BBB9 /* Sources */,
+				A295CC2321F5A3810079BBB9 /* Frameworks */,
+				A295CC2421F5A3810079BBB9 /* Resources */,
+				A295CC5821F5B4660079BBB9 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A295CC5721F5B4660079BBB9 /* PBXTargetDependency */,
+			);
+			name = FlawedTool;
+			productName = FlawedTool;
+			productReference = A295CC2621F5A3810079BBB9 /* FlawedTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A295CC3621F5A3820079BBB9 /* FlawedToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A295CC5021F5A3830079BBB9 /* Build configuration list for PBXNativeTarget "FlawedToolTests" */;
+			buildPhases = (
+				A295CC3321F5A3820079BBB9 /* Sources */,
+				A295CC3421F5A3820079BBB9 /* Frameworks */,
+				A295CC3521F5A3820079BBB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A295CC3921F5A3830079BBB9 /* PBXTargetDependency */,
+			);
+			name = FlawedToolTests;
+			productName = FlawedToolTests;
+			productReference = A295CC3721F5A3820079BBB9 /* FlawedToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A295CC4121F5A3830079BBB9 /* FlawedToolUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A295CC5121F5A3830079BBB9 /* Build configuration list for PBXNativeTarget "FlawedToolUITests" */;
+			buildPhases = (
+				A295CC3E21F5A3830079BBB9 /* Sources */,
+				A295CC3F21F5A3830079BBB9 /* Frameworks */,
+				A295CC4021F5A3830079BBB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A295CC4421F5A3830079BBB9 /* PBXTargetDependency */,
+			);
+			name = FlawedToolUITests;
+			productName = FlawedToolUITests;
+			productReference = A295CC4221F5A3830079BBB9 /* FlawedToolUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		A2BAB47021F30C6F000BB287 /* Flawed */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2BAB48521F30C6F000BB287 /* Build configuration list for PBXNativeTarget "Flawed" */;
@@ -155,6 +333,17 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Cowsay;
 				TargetAttributes = {
+					A295CC2521F5A3810079BBB9 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					A295CC3621F5A3820079BBB9 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A295CC2521F5A3810079BBB9;
+					};
+					A295CC4121F5A3830079BBB9 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A295CC2521F5A3810079BBB9;
+					};
 					A2BAB47021F30C6F000BB287 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
@@ -170,6 +359,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A2BAB46721F30C6F000BB287;
 			productRefGroup = A2BAB47221F30C6F000BB287 /* Products */;
@@ -178,11 +368,37 @@
 			targets = (
 				A2BAB47021F30C6F000BB287 /* Flawed */,
 				A2BAB47921F30C6F000BB287 /* FlawedTests */,
+				A295CC2521F5A3810079BBB9 /* FlawedTool */,
+				A295CC3621F5A3820079BBB9 /* FlawedToolTests */,
+				A295CC4121F5A3830079BBB9 /* FlawedToolUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A295CC2421F5A3810079BBB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A295CC2D21F5A3820079BBB9 /* Assets.xcassets in Resources */,
+				A295CC3021F5A3820079BBB9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A295CC3521F5A3820079BBB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A295CC4021F5A3830079BBB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2BAB46F21F30C6F000BB287 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,6 +416,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A295CC2221F5A3810079BBB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A295CC2B21F5A3810079BBB9 /* ViewController.swift in Sources */,
+				A295CC2921F5A3810079BBB9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A295CC3321F5A3820079BBB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A295CC3C21F5A3830079BBB9 /* FlawedToolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A295CC3E21F5A3830079BBB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A295CC4721F5A3830079BBB9 /* FlawedToolUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2BAB46D21F30C6F000BB287 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -221,6 +462,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A295CC3921F5A3830079BBB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A295CC2521F5A3810079BBB9 /* FlawedTool */;
+			targetProxy = A295CC3821F5A3830079BBB9 /* PBXContainerItemProxy */;
+		};
+		A295CC4421F5A3830079BBB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A295CC2521F5A3810079BBB9 /* FlawedTool */;
+			targetProxy = A295CC4321F5A3830079BBB9 /* PBXContainerItemProxy */;
+		};
+		A295CC5721F5B4660079BBB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2BAB47021F30C6F000BB287 /* Flawed */;
+			targetProxy = A295CC5621F5B4660079BBB9 /* PBXContainerItemProxy */;
+		};
 		A2BAB47D21F30C6F000BB287 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A2BAB47021F30C6F000BB287 /* Flawed */;
@@ -228,7 +484,134 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		A295CC2E21F5A3820079BBB9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A295CC2F21F5A3820079BBB9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		A295CC4921F5A3830079BBB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlawedTool/FlawedTool.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FlawedTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cowsay.FlawedTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		A295CC4A21F5A3830079BBB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlawedTool/FlawedTool.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FlawedTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cowsay.FlawedTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		A295CC4B21F5A3830079BBB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FlawedToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cowsay.FlawedToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlawedTool.app/Contents/MacOS/FlawedTool";
+			};
+			name = Debug;
+		};
+		A295CC4C21F5A3830079BBB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FlawedToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cowsay.FlawedToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlawedTool.app/Contents/MacOS/FlawedTool";
+			};
+			name = Release;
+		};
+		A295CC4D21F5A3830079BBB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FlawedToolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cowsay.FlawedToolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = FlawedTool;
+			};
+			name = Debug;
+		};
+		A295CC4E21F5A3830079BBB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FlawedToolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cowsay.FlawedToolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = FlawedTool;
+			};
+			name = Release;
+		};
 		A2BAB48321F30C6F000BB287 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -442,6 +825,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A295CC4F21F5A3830079BBB9 /* Build configuration list for PBXNativeTarget "FlawedTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A295CC4921F5A3830079BBB9 /* Debug */,
+				A295CC4A21F5A3830079BBB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A295CC5021F5A3830079BBB9 /* Build configuration list for PBXNativeTarget "FlawedToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A295CC4B21F5A3830079BBB9 /* Debug */,
+				A295CC4C21F5A3830079BBB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A295CC5121F5A3830079BBB9 /* Build configuration list for PBXNativeTarget "FlawedToolUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A295CC4D21F5A3830079BBB9 /* Debug */,
+				A295CC4E21F5A3830079BBB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A2BAB46B21F30C6F000BB287 /* Build configuration list for PBXProject "Flawed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

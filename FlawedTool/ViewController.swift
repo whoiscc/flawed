@@ -10,12 +10,20 @@ import Cocoa
 import Flawed
 
 enum CompiledSource {
-    case success(LangNode.Statement)
+    case success([Instruction])
     case failure(Error)
     case empty
 }
 
-class ViewController: NSViewController, NSTextViewDelegate {
+let env = [
+    "+": BindName.alloc(),
+    "-": BindName.alloc(),
+    "*": BindName.alloc(),
+    "/": BindName.alloc(),
+    "abs": BindName.alloc(),
+]
+
+class ViewController: NSViewController, NSWindowDelegate {
 
     @IBOutlet var input: NSTextView!
     @IBOutlet var output: NSTextView!
@@ -29,7 +37,12 @@ class ViewController: NSViewController, NSTextViewDelegate {
         input.font = font
         
         representedObject = CompiledSource.empty
-        NSLog("initialized")
+        
+        input.heightAnchor.constraint(equalTo: output.heightAnchor, multiplier: 1.0).isActive = true
+    }
+
+    override func viewDidAppear() {
+        view.window?.delegate = self
     }
     
     override var representedObject: Any? {
@@ -40,7 +53,7 @@ class ViewController: NSViewController, NSTextViewDelegate {
                 output.textColor = NSColor.gray
             case .success(let node):
                 output.string = "\(node)"
-                output.textColor = NSColor.green
+                output.textColor = NSColor.blue
             case .failure(let error):
                 output.string = "\(error)"
                 output.textColor = NSColor.red
@@ -48,21 +61,17 @@ class ViewController: NSViewController, NSTextViewDelegate {
         }
     }
 
-    func textDidChange(_ notification: Notification) {
-        guard let textView = notification.object as? NSTextView else {
-            return
-        }
-        guard textView === input else {
-            preconditionFailure()
-        }
-        let source = input.string
+    @IBAction func onCompile(_ sender: Any) {
+        NSLog("compile")
+        let source = input.string.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !source.isEmpty else {
             representedObject = CompiledSource.empty
             return
         }
         do {
             let node = try parse(tokens: try scan(source: source))
-            representedObject = CompiledSource.success(node)
+            let inst = try eval(stat: node, env: env)
+            representedObject = CompiledSource.success(inst)
         } catch {
             representedObject = CompiledSource.failure(error)
         }

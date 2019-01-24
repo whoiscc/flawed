@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A27CCE9921F91CA3007E6DBC /* Eval.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CCE9821F91CA3007E6DBC /* Eval.swift */; };
 		A295CC2921F5A3810079BBB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295CC2821F5A3810079BBB9 /* AppDelegate.swift */; };
 		A295CC2B21F5A3810079BBB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295CC2A21F5A3810079BBB9 /* ViewController.swift */; };
 		A295CC2D21F5A3820079BBB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A295CC2C21F5A3820079BBB9 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A27CCE9821F91CA3007E6DBC /* Eval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eval.swift; sourceTree = "<group>"; };
 		A295CC2621F5A3810079BBB9 /* FlawedTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlawedTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A295CC2821F5A3810079BBB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A295CC2A21F5A3810079BBB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				A2BAB47521F30C6F000BB287 /* Info.plist */,
 				A2BAB48B21F30C86000BB287 /* Grammar.swift */,
 				A2BAB48D21F42D1D000BB287 /* Token.swift */,
+				A27CCE9821F91CA3007E6DBC /* Eval.swift */,
 			);
 			path = Flawed;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			files = (
 				A2BAB48C21F30C86000BB287 /* Grammar.swift in Sources */,
 				A2BAB48E21F42D1D000BB287 /* Token.swift in Sources */,
+				A27CCE9921F91CA3007E6DBC /* Eval.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

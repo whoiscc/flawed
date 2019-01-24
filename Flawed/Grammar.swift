@@ -37,6 +37,7 @@ public enum ExpectedToken {
     case number
     case identifier
     case assign
+    case open, close
 }
 
 public enum ParseError: Error {
@@ -184,8 +185,16 @@ func parseExpr5(
     case .identifier(let id):
         offset += 1
         return .identifier(id)
+    case .open:
+        offset += 1
+        let expr = try parseExpr(source, &offset)
+        guard case .close = source[offset].kind else {
+            throw ParseError.unexpectedToken(at: offset, expected: [.close])
+        }
+        offset += 1
+        return expr
     default:
         throw ParseError.unexpectedToken(
-            at: offset, expected: [.number, .identifier])
+            at: offset, expected: [.number, .identifier, .open])
     }
 }

@@ -29,7 +29,7 @@ public enum Instruction {
 }
 
 public enum EvalError: Error {
-    case unresolved(String)
+    case unresolved(String, Expression)
 }
 
 extension Instruction: CustomStringConvertible {
@@ -48,7 +48,7 @@ extension Instruction: CustomStringConvertible {
     }
 }
 
-public func eval(stat: LangNode.Statement, env: [String: BindName])
+public func eval(stat: Statement, env: [String: BindName])
     throws -> [Instruction]
 {
     var inst = [Instruction](), env = env
@@ -57,11 +57,11 @@ public func eval(stat: LangNode.Statement, env: [String: BindName])
 }
 
 func evalStat(
-    _ stat: LangNode.Statement,
+    _ stat: Statement,
     _ env: inout [String: BindName],
     _ inst: inout [Instruction]
 ) throws {
-    switch stat {
+    switch stat.kind {
     case .block(let seq):
         for subStat in seq {
             try evalStat(subStat, &env, &inst)
@@ -82,18 +82,18 @@ func evalStat(
 }
 
 func evalExpr(
-    _ expr: LangNode.Expression,
+    _ expr: Expression,
     _ env: [String: BindName],
     _ inst: inout [Instruction]
 ) throws -> BindName {
-    switch expr {
+    switch expr.kind {
     case .number(let value):
         let name = BindName.alloc()
         inst.append(.constant(name, value))
         return name
     case .identifier(let name):
         guard let bindName = env[name] else {
-            throw EvalError.unresolved(name)
+            throw EvalError.unresolved(name, expr)
         }
         return bindName
     case .calling(let function, let arguments):

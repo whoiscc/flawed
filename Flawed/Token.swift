@@ -199,7 +199,7 @@ public func scan(source content: String) throws -> [Token] {
                 endLine: source.line, endColumn: source.column
             ))
         case "!", "@", "#", "$", "%", "^", "&", "*", "-", "+", "=",
-             ":", "|", "<", ">", ".", "/", "?", "\\":
+             ":", "|", "<", ">", ".", "/", "?", "\\", "~":
             let name = source.scanName()
             let kind: Token.Kind = name == "<-" ? .assign : .operator_(name)
             tokens.append(Token(

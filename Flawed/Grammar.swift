@@ -146,16 +146,17 @@ func parseIfThenElse(
     )
 }
 
-func parseExpr(
-    _ source: [Token], _ offset: inout Int
+func parseExprImpl(
+    _ source: [Token], _ offset: inout Int,
+    _ prefixSet: String, _ next: ([Token], inout Int) throws -> Expression
 ) throws -> Expression {
     let start = offset
-    let left = try parseExpr2(source, &offset)
+    let left = try next(source, &offset)
     switch (source[offset].kind) {
-    case .operator_(let op) where "+-".contains(op.first!):
+    case .operator_(let op) where prefixSet.contains(op.first!):
         let opPos = offset
         offset += 1
-        let right = try parseExpr(source, &offset)
+        let right = try parseExprImpl(source, &offset, prefixSet, next)
         return Expression(
             kind: .calling(
                 Expression(kind: .identifier(op), tokens: opPos..<opPos + 1),
@@ -168,35 +169,50 @@ func parseExpr(
     }
 }
 
+func parseExpr(
+    _ source: [Token], _ offset: inout Int
+) throws -> Expression {
+    return try parseExprImpl(source, &offset, "$", parseExpr2)
+}
+
+
 func parseExpr2(
     _ source: [Token], _ offset: inout Int
 ) throws -> Expression {
-    let start = offset
-    let left = try parseExpr3(source, &offset)
-    switch (source[offset].kind) {
-    case .operator_(let op) where "*/".contains(op.first!):
-        let opPos = offset
-        offset += 1
-        let right = try parseExpr(source, &offset)
-        return Expression(
-            kind: .calling(
-                Expression(kind: .identifier(op), tokens: opPos..<opPos + 1),
-                [left, right]
-            ),
-            tokens: start..<offset
-        )
-    default:
-        return left
-    }
+    return try parseExprImpl(source, &offset, "&|^", parseExpr3)
 }
 
 func parseExpr3(
     _ source: [Token], _ offset: inout Int
 ) throws -> Expression {
+    return try parseExprImpl(source, &offset, "~=<>", parseExpr4)
+}
+
+func parseExpr4(
+    _ source: [Token], _ offset: inout Int
+) throws -> Expression {
+    return try parseExprImpl(source, &offset, "+-", parseExpr5)
+}
+
+func parseExpr5(
+    _ source: [Token], _ offset: inout Int
+) throws -> Expression {
+    return try parseExprImpl(source, &offset, "*/", parseExpr6)
+}
+
+func parseExpr6(
+    _ source: [Token], _ offset: inout Int
+) throws -> Expression {
+    return try parseExprImpl(source, &offset, "@", parseExprU)
+}
+
+func parseExprU(
+    _ source: [Token], _ offset: inout Int
+) throws -> Expression {
     let start = offset
     if case .operator_(let op) = source[offset].kind {
         offset += 1
-        let expr = try parseExpr4(source, &offset)
+        let expr = try parseExprC(source, &offset)
         return Expression(
             kind: .calling(
                 Expression(kind: .identifier(op), tokens: start..<start + 1),
@@ -205,17 +221,17 @@ func parseExpr3(
             tokens: start..<offset
         )
     } else {
-        return try parseExpr4(source, &offset)
+        return try parseExprC(source, &offset)
     }
 }
 
-func parseExpr4(
+func parseExprC(
     _ source: [Token], _ offset: inout Int
 ) throws -> Expression {
     let start = offset
-    let firstFunc = try parseExpr5(source, &offset)
+    let firstFunc = try parseExprA(source, &offset)
     if case .open = source[offset].kind {
-        let callingList = try parseExpr4_(source, &offset)
+        let callingList = try parseExprC_(source, &offset)
         var expr = firstFunc
         for argList in callingList {
             expr = Expression(kind: .calling(expr, argList), tokens: start..<offset)
@@ -226,7 +242,7 @@ func parseExpr4(
     }
 }
 
-func parseExpr4_(
+func parseExprC_(
     _ source: [Token], _ offset: inout Int
 ) throws -> [[Expression]] {
     var callingList = [[Expression]]()
@@ -249,7 +265,7 @@ func parseExpr4_(
     return callingList
 }
 
-func parseExpr5(
+func parseExprA(
     _ source: [Token], _ offset: inout Int
 ) throws -> Expression {
     switch (source[offset].kind) {

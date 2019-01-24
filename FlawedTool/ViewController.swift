@@ -23,11 +23,12 @@ let env = [
     "abs": BindName.alloc(),
 ]
 
-class ViewController: NSViewController, NSWindowDelegate {
+class ViewController: NSViewController, NSTextDelegate {
 
     @IBOutlet var input: NSTextView!
     @IBOutlet var output: NSTextView!
     
+    @IBOutlet weak var outputTopMargin: NSLayoutConstraint!
     let font: NSFont! = NSFont(name: "Fira Mono", size: 12)
     
     override func viewDidLoad() {
@@ -37,14 +38,9 @@ class ViewController: NSViewController, NSWindowDelegate {
         input.font = font
         
         representedObject = CompiledSource.empty
-        
-        input.heightAnchor.constraint(equalTo: output.heightAnchor, multiplier: 1.0).isActive = true
+        outputTopMargin.constant = view.frame.height * 0.6
     }
 
-    override func viewDidAppear() {
-        view.window?.delegate = self
-    }
-    
     override var representedObject: Any? {
         didSet {
             switch (representedObject as! CompiledSource) {
@@ -75,7 +71,21 @@ class ViewController: NSViewController, NSWindowDelegate {
         } catch {
             representedObject = CompiledSource.failure(error)
         }
+        NSAnimationContext.runAnimationGroup { (context) in
+            context.duration = 0.25
+            context.timingFunction = CAMediaTimingFunction(
+                name: CAMediaTimingFunctionName.easeInEaseOut)
+            outputTopMargin.animator().constant = view.frame.height * 0.3
+        }
     }
     
+    func textDidChange(_ notification: Notification) {
+        NSLog("changed")
+        NSAnimationContext.runAnimationGroup { (context) in
+            context.duration = 0.25
+            context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            outputTopMargin.animator().constant = view.frame.height * 0.6
+        }
+    }
 }
 

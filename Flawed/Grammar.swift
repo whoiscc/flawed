@@ -10,7 +10,7 @@ import Foundation
 
 
 // program : stat `\n` program | stat `\n` | stat
-// stat : assign
+// stat : assign | IF expr THEN stat ELSE stat | INDENT program DEDENT
 // assign : ID `<-` expr
 // expr : expr2 OP1 expr | expr2
 // expr2 : expr3 OP2 expr2 | expr3
@@ -43,6 +43,9 @@ public enum ExpectedToken {
     case identifier
     case assign
     case open, close
+    case then, else_
+    case indent, dedent
+    case if_
 }
 
 public enum ParseError: Error {
@@ -64,6 +67,9 @@ func parseProgram(
         if case .end = source[offset].kind {
             break
         }
+        if case .dedent = source[offset].kind {
+            break
+        }
         let stat = try parseStat(source, &offset)
         statements.append(stat)
         if case .newline = source[offset].kind {
@@ -79,10 +85,20 @@ func parseStat(
     switch source[offset].kind {
     case .identifier:
         return try parseAssign(source, &offset)
-    // TODO
+    case .if_:
+        return try parseIfThenElse(source, &offset)
+    case .indent:
+        offset += 1
+        let stat = try parseProgram(source, &offset)
+        guard case .dedent = source[offset].kind else {
+            throw ParseError.unexpectedToken(
+                at: source[offset], expected: [.dedent])
+        }
+        offset += 1
+        return stat
     default:
         throw ParseError.unexpectedToken(
-            at: source[offset], expected: [.identifier])
+            at: source[offset], expected: [.identifier, .if_, .indent])
     }
 }
 
@@ -101,6 +117,33 @@ func parseAssign(
     offset += 1
     let expr = try parseExpr(source, &offset)
     return Statement(kind: .assignment(name, expr), tokens: start..<offset)
+}
+
+func parseIfThenElse(
+    _ source: [Token], _ offset: inout Int
+) throws -> Statement {
+    let start = offset
+    guard case .if_ = source[offset].kind else {
+        preconditionFailure()
+    }
+    offset += 1
+    let cond = try parseExpr(source, &offset)
+    guard case .then = source[offset].kind else {
+        throw ParseError.unexpectedToken(
+            at: source[offset], expected: [.then])
+    }
+    offset += 1
+    let trueStat = try parseStat(source, &offset)
+    guard case .else_ = source[offset].kind else {
+        throw ParseError.unexpectedToken(
+            at: source[offset], expected: [.else_])
+    }
+    offset += 1
+    let falseStat = try parseStat(source, &offset)
+    return Statement(
+        kind: .condition(cond, trueStat, falseStat),
+        tokens: start..<offset
+    )
 }
 
 func parseExpr(

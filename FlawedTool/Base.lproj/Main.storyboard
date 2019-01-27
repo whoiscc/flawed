@@ -712,7 +712,7 @@
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bnw-iv-WI7" userLabel="Head Stack">
                                         <rect key="frame" x="0.0" y="425" width="463" height="17"/>
                                         <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lU3-Kg-6qm">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lU3-Kg-6qm" userLabel="Source Code Label">
                                                 <rect key="frame" x="-2" y="0.0" width="381" height="17"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Source Code" id="q4j-wQ-Ial">
                                                     <font key="font" usesAppearanceFont="YES"/>
@@ -720,7 +720,7 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-p4-s8j">
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-p4-s8j" userLabel="Compile Button">
                                                 <rect key="frame" x="379" y="-7" width="90" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="78" id="pnt-Wq-4aY"/>
@@ -772,7 +772,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kb4-zC-srv">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kb4-zC-srv" userLabel="Output Label">
                                         <rect key="frame" x="-2" y="152" width="47" height="17"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Output" id="GCe-LW-mcE">
                                             <font key="font" metaFont="system"/>
@@ -837,7 +837,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75.5" y="-554"/>
+            <point key="canvasLocation" x="76" y="388"/>
         </scene>
     </scenes>
 </document>

@@ -21,6 +21,7 @@ public struct Token {
         case newline
         case end
         case if_, then, else_
+        case func_, rassign
     }
     let kind: Kind
     let beginLine, beginColumn, endLine, endColumn: Int
@@ -173,17 +174,16 @@ public func scan(source content: String) throws -> [Token] {
             tokens.append(source.forwardToken(.comma))
         case "a"..."z", "A"..."Z", "_":
             let name = source.scanName()
-            var kind: Token.Kind!
+            let knownKind: [String: Token.Kind] = [
+                "if": .if_,
+                "else": .else_,
+                "func": .func_
+            ]
             if name == "if" {
-                kind = .if_
                 manager.afterIf = true
-            } else if name == "else" {
-                kind = .else_
-            } else {
-                kind = .identifier(name)
             }
             tokens.append(Token(
-                kind: kind,
+                kind: knownKind[name] ?? .identifier(name),
                 beginLine: line, beginColumn: column,
                 endLine: source.line, endColumn: source.column
             ))
@@ -201,9 +201,12 @@ public func scan(source content: String) throws -> [Token] {
         case "!", "@", "#", "$", "%", "^", "&", "*", "-", "+", "=",
              ":", "|", "<", ">", ".", "/", "?", "\\", "~":
             let name = source.scanName()
-            let kind: Token.Kind = name == "<-" ? .assign : .operator_(name)
+            let knownKind: [String: Token.Kind] = [
+                "->": .rassign,
+                "<-": .assign,
+            ]
             tokens.append(Token(
-                kind: kind,
+                kind: knownKind[name] ?? .operator_(name),
                 beginLine: line, beginColumn: column,
                 endLine: source.line, endColumn: source.column
             ))

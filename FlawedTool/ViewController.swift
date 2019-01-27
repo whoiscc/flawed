@@ -15,15 +15,15 @@ enum CompiledSource {
     case empty
 }
 
-let env = [
+let env = SymbolTable([
     "+": BindName.alloc(),
     "-": BindName.alloc(),
     "*": BindName.alloc(),
     "/": BindName.alloc(),
     "abs": BindName.alloc(),
-]
+])
 
-class ViewController: NSViewController, NSTextDelegate {
+class ViewController: NSViewController, NSTextDelegate, NSWindowDelegate {
 
     @IBOutlet var input: NSTextView!
     @IBOutlet var output: NSTextView!
@@ -39,6 +39,10 @@ class ViewController: NSViewController, NSTextDelegate {
         
         representedObject = CompiledSource.empty
         outputTopMargin.constant = view.frame.height * 0.6
+    }
+    
+    override func viewDidAppear() {
+        view.window!.delegate = self
     }
 
     override var representedObject: Any? {
@@ -58,7 +62,7 @@ class ViewController: NSViewController, NSTextDelegate {
     }
 
     @IBAction func onCompile(_ sender: Any) {
-        NSLog("compile")
+//        NSLog("compile")
         let source = input.string.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !source.isEmpty else {
             representedObject = CompiledSource.empty
@@ -66,7 +70,7 @@ class ViewController: NSViewController, NSTextDelegate {
         }
         do {
             let node = try parse(tokens: try scan(source: source))
-            let inst = try eval(stat: node, env: env)
+            let inst = try generate(stat: node, env: env)
             representedObject = CompiledSource.success(inst)
         } catch {
             representedObject = CompiledSource.failure(error)
@@ -80,12 +84,21 @@ class ViewController: NSViewController, NSTextDelegate {
     }
     
     func textDidChange(_ notification: Notification) {
-        NSLog("changed")
+//        NSLog("changed")
         NSAnimationContext.runAnimationGroup { (context) in
             context.duration = 0.25
             context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             outputTopMargin.animator().constant = view.frame.height * 0.6
         }
     }
+    
+    func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
+        NSLog("\(frameSize)")
+        NSAnimationContext.runAnimationGroup { (context) in
+            context.duration = 0.25
+            context.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            outputTopMargin.animator().constant = frameSize.height * 0.6
+        }
+        return frameSize
+    }
 }
-

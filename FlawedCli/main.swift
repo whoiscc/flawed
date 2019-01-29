@@ -9,6 +9,8 @@
 import Foundation
 import Flawed
 
-let source = "x <- 42"
+let source = CommandLine.arguments[1]
 let tokens = try scan(source: source)
-print(tokens)
+let stat = try parse(tokens: tokens)
+let instr = try generate(stat: stat, env: baseTable)
+print(instr)

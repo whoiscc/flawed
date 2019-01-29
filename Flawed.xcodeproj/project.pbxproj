@@ -118,17 +118,10 @@
 		A27703F62201002300F5E636 /* FlawedCli */ = {
 			isa = PBXGroup;
 			children = (
+				A27704112201088C00F5E636 /* Info.plist */,
 				A2770401220100E500F5E636 /* main.swift */,
 			);
 			path = FlawedCli;
-			sourceTree = "<group>";
-		};
-		A27704102201088C00F5E636 /* FlawedCliWrapper */ = {
-			isa = PBXGroup;
-			children = (
-				A27704112201088C00F5E636 /* Info.plist */,
-			);
-			path = FlawedCliWrapper;
 			sourceTree = "<group>";
 		};
 		A2BAB46721F30C6F000BB287 = {
@@ -136,7 +129,6 @@
 			children = (
 				A2BAB47321F30C6F000BB287 /* Flawed */,
 				A27703F62201002300F5E636 /* FlawedCli */,
-				A27704102201088C00F5E636 /* FlawedCliWrapper */,
 				A2BAB47221F30C6F000BB287 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -390,7 +382,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = FlawedCliWrapper/Info.plist;
+				INFOPLIST_FILE = FlawedCli/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = cowsay.FlawedCliWrapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -404,7 +396,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = FlawedCliWrapper/Info.plist;
+				INFOPLIST_FILE = FlawedCli/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = cowsay.FlawedCliWrapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";

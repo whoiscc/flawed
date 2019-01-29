@@ -86,6 +86,7 @@
 		A2BAB48D21F42D1D000BB287 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		A2E1511721FD318C00FDDAA6 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		A2E1511921FD3A8700FDDAA6 /* Gen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gen.swift; sourceTree = "<group>"; };
+		A2F11BF42201153500C8B26F /* Flawed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flawed.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +160,7 @@
 				A27CCE9821F91CA3007E6DBC /* Eval.swift */,
 				A2E1511721FD318C00FDDAA6 /* Base.swift */,
 				A2E1511921FD3A8700FDDAA6 /* Gen.swift */,
+				A2F11BF42201153500C8B26F /* Flawed.h */,
 			);
 			path = Flawed;
 			sourceTree = "<group>";
@@ -555,6 +557,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cowsay.Flawed;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME).h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
@@ -583,6 +586,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cowsay.Flawed;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME).h";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;

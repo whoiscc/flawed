@@ -15,15 +15,7 @@ enum CompiledSource {
     case empty
 }
 
-let env = SymbolTable([
-    "+": BindName.alloc(),
-    "-": BindName.alloc(),
-    "*": BindName.alloc(),
-    "/": BindName.alloc(),
-    "abs": BindName.alloc(),
-])
-
-class ViewController: NSViewController, NSTextDelegate, NSWindowDelegate {
+class CompileViewController: NSViewController, NSTextDelegate, NSWindowDelegate {
 
     @IBOutlet var input: NSTextView!
     @IBOutlet var output: NSTextView!
@@ -70,7 +62,7 @@ class ViewController: NSViewController, NSTextDelegate, NSWindowDelegate {
         }
         do {
             let node = try parse(tokens: try scan(source: source))
-            let inst = try generate(stat: node, env: env)
+            let inst = try generate(stat: node, env: baseTable)
             representedObject = CompiledSource.success(inst)
         } catch {
             representedObject = CompiledSource.failure(error)

@@ -3,23 +3,50 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2770404220101B300F5E636 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2770401220100E500F5E636 /* main.swift */; };
+		A277041A220108D100F5E636 /* Flawed.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2BAB47121F30C6F000BB287 /* Flawed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A277041C220108E000F5E636 /* FlawedCli in CopyFiles */ = {isa = PBXBuildFile; fileRef = A27703F52201002300F5E636 /* FlawedCli */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A277041F22010D0B00F5E636 /* Flawed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2BAB47121F30C6F000BB287 /* Flawed.framework */; };
 		A27CCE9921F91CA3007E6DBC /* Eval.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CCE9821F91CA3007E6DBC /* Eval.swift */; };
 		A295CC2921F5A3810079BBB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295CC2821F5A3810079BBB9 /* AppDelegate.swift */; };
-		A295CC2B21F5A3810079BBB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295CC2A21F5A3810079BBB9 /* ViewController.swift */; };
+		A295CC2B21F5A3810079BBB9 /* CompileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295CC2A21F5A3810079BBB9 /* CompileViewController.swift */; };
 		A295CC2D21F5A3820079BBB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A295CC2C21F5A3820079BBB9 /* Assets.xcassets */; };
 		A295CC3021F5A3820079BBB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A295CC2E21F5A3820079BBB9 /* Main.storyboard */; };
 		A295CC5421F5B4660079BBB9 /* Flawed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2BAB47121F30C6F000BB287 /* Flawed.framework */; };
 		A295CC5521F5B4660079BBB9 /* Flawed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2BAB47121F30C6F000BB287 /* Flawed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A2BAB48221F30C6F000BB287 /* Flawed.h in Headers */ = {isa = PBXBuildFile; fileRef = A2BAB47421F30C6F000BB287 /* Flawed.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A2BAB48C21F30C86000BB287 /* Grammar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BAB48B21F30C86000BB287 /* Grammar.swift */; };
+		A2BAB48C21F30C86000BB287 /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BAB48B21F30C86000BB287 /* Parse.swift */; };
 		A2BAB48E21F42D1D000BB287 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BAB48D21F42D1D000BB287 /* Token.swift */; };
+		A2E1511821FD318C00FDDAA6 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E1511721FD318C00FDDAA6 /* Base.swift */; };
+		A2E1511A21FD3A8700FDDAA6 /* Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E1511921FD3A8700FDDAA6 /* Gen.swift */; };
+		A2E1511C21FFB5B300FDDAA6 /* EvaluateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E1511B21FFB5B300FDDAA6 /* EvaluateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A27704152201089700F5E636 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2BAB46821F30C6F000BB287 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2BAB47021F30C6F000BB287;
+			remoteInfo = Flawed;
+		};
+		A27704172201089900F5E636 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2BAB46821F30C6F000BB287 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A27703F42201002300F5E636;
+			remoteInfo = FlawedCli;
+		};
+		A277041D2201097000F5E636 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2BAB46821F30C6F000BB287 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2BAB47021F30C6F000BB287;
+			remoteInfo = Flawed;
+		};
 		A295CC5621F5B4660079BBB9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A2BAB46821F30C6F000BB287 /* Project object */;
@@ -30,6 +57,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		A27703F32201002300F5E636 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		A2770419220108C800F5E636 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A277041A220108D100F5E636 /* Flawed.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A277041B220108D400F5E636 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 12;
+			files = (
+				A277041C220108E000F5E636 /* FlawedCli in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A295CC5821F5B4660079BBB9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,22 +100,43 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A27703F52201002300F5E636 /* FlawedCli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FlawedCli; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2770401220100E500F5E636 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A277040F2201088C00F5E636 /* FlawedCliWrapper.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlawedCliWrapper.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A27704112201088C00F5E636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A27CCE9821F91CA3007E6DBC /* Eval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eval.swift; sourceTree = "<group>"; };
 		A295CC2621F5A3810079BBB9 /* FlawedTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlawedTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A295CC2821F5A3810079BBB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A295CC2A21F5A3810079BBB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A295CC2A21F5A3810079BBB9 /* CompileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompileViewController.swift; sourceTree = "<group>"; };
 		A295CC2C21F5A3820079BBB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A295CC2F21F5A3820079BBB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A295CC3121F5A3820079BBB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A295CC3221F5A3820079BBB9 /* FlawedTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlawedTool.entitlements; sourceTree = "<group>"; };
 		A2BAB47121F30C6F000BB287 /* Flawed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flawed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2BAB47421F30C6F000BB287 /* Flawed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flawed.h; sourceTree = "<group>"; };
 		A2BAB47521F30C6F000BB287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2BAB48B21F30C86000BB287 /* Grammar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grammar.swift; sourceTree = "<group>"; };
+		A2BAB48B21F30C86000BB287 /* Parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
 		A2BAB48D21F42D1D000BB287 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		A2E1511721FD318C00FDDAA6 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		A2E1511921FD3A8700FDDAA6 /* Gen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gen.swift; sourceTree = "<group>"; };
+		A2E1511B21FFB5B300FDDAA6 /* EvaluateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A27703F22201002300F5E636 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A277041F22010D0B00F5E636 /* Flawed.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A277040C2201088C00F5E636 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A295CC2321F5A3810079BBB9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,11 +155,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A27703F62201002300F5E636 /* FlawedCli */ = {
+			isa = PBXGroup;
+			children = (
+				A2770401220100E500F5E636 /* main.swift */,
+			);
+			path = FlawedCli;
+			sourceTree = "<group>";
+		};
+		A2770405220101DA00F5E636 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A27704102201088C00F5E636 /* FlawedCliBundle */ = {
+			isa = PBXGroup;
+			children = (
+				A27704112201088C00F5E636 /* Info.plist */,
+			);
+			path = FlawedCliBundle;
+			sourceTree = "<group>";
+		};
 		A295CC2721F5A3810079BBB9 /* FlawedTool */ = {
 			isa = PBXGroup;
 			children = (
 				A295CC2821F5A3810079BBB9 /* AppDelegate.swift */,
-				A295CC2A21F5A3810079BBB9 /* ViewController.swift */,
+				A295CC2A21F5A3810079BBB9 /* CompileViewController.swift */,
+				A2E1511B21FFB5B300FDDAA6 /* EvaluateViewController.swift */,
 				A295CC2C21F5A3820079BBB9 /* Assets.xcassets */,
 				A295CC2E21F5A3820079BBB9 /* Main.storyboard */,
 				A295CC3121F5A3820079BBB9 /* Info.plist */,
@@ -96,7 +197,10 @@
 			children = (
 				A2BAB47321F30C6F000BB287 /* Flawed */,
 				A295CC2721F5A3810079BBB9 /* FlawedTool */,
+				A27703F62201002300F5E636 /* FlawedCli */,
+				A27704102201088C00F5E636 /* FlawedCliBundle */,
 				A2BAB47221F30C6F000BB287 /* Products */,
+				A2770405220101DA00F5E636 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +209,8 @@
 			children = (
 				A2BAB47121F30C6F000BB287 /* Flawed.framework */,
 				A295CC2621F5A3810079BBB9 /* FlawedTool.app */,
+				A27703F52201002300F5E636 /* FlawedCli */,
+				A277040F2201088C00F5E636 /* FlawedCliWrapper.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,11 +218,12 @@
 		A2BAB47321F30C6F000BB287 /* Flawed */ = {
 			isa = PBXGroup;
 			children = (
-				A2BAB47421F30C6F000BB287 /* Flawed.h */,
 				A2BAB47521F30C6F000BB287 /* Info.plist */,
-				A2BAB48B21F30C86000BB287 /* Grammar.swift */,
+				A2BAB48B21F30C86000BB287 /* Parse.swift */,
 				A2BAB48D21F42D1D000BB287 /* Token.swift */,
 				A27CCE9821F91CA3007E6DBC /* Eval.swift */,
+				A2E1511721FD318C00FDDAA6 /* Base.swift */,
+				A2E1511921FD3A8700FDDAA6 /* Gen.swift */,
 			);
 			path = Flawed;
 			sourceTree = "<group>";
@@ -128,13 +235,51 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2BAB48221F30C6F000BB287 /* Flawed.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A27703F42201002300F5E636 /* FlawedCli */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A27703F92201002300F5E636 /* Build configuration list for PBXNativeTarget "FlawedCli" */;
+			buildPhases = (
+				A27703F12201002300F5E636 /* Sources */,
+				A27703F22201002300F5E636 /* Frameworks */,
+				A27703F32201002300F5E636 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A277041E2201097000F5E636 /* PBXTargetDependency */,
+			);
+			name = FlawedCli;
+			productName = FlawedCli;
+			productReference = A27703F52201002300F5E636 /* FlawedCli */;
+			productType = "com.apple.product-type.tool";
+		};
+		A277040E2201088C00F5E636 /* FlawedCliWrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A27704122201088C00F5E636 /* Build configuration list for PBXNativeTarget "FlawedCliWrapper" */;
+			buildPhases = (
+				A277040B2201088C00F5E636 /* Sources */,
+				A277040C2201088C00F5E636 /* Frameworks */,
+				A277040D2201088C00F5E636 /* Resources */,
+				A2770419220108C800F5E636 /* CopyFiles */,
+				A277041B220108D400F5E636 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A27704182201089900F5E636 /* PBXTargetDependency */,
+				A27704162201089700F5E636 /* PBXTargetDependency */,
+			);
+			name = FlawedCliWrapper;
+			productName = FlawedCliBundle;
+			productReference = A277040F2201088C00F5E636 /* FlawedCliWrapper.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		A295CC2521F5A3810079BBB9 /* FlawedTool */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A295CC4F21F5A3830079BBB9 /* Build configuration list for PBXNativeTarget "FlawedTool" */;
@@ -182,6 +327,13 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Cowsay;
 				TargetAttributes = {
+					A27703F42201002300F5E636 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+					A277040E2201088C00F5E636 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					A295CC2521F5A3810079BBB9 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -192,7 +344,7 @@
 				};
 			};
 			buildConfigurationList = A2BAB46B21F30C6F000BB287 /* Build configuration list for PBXProject "Flawed" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -206,11 +358,20 @@
 			targets = (
 				A2BAB47021F30C6F000BB287 /* Flawed */,
 				A295CC2521F5A3810079BBB9 /* FlawedTool */,
+				A27703F42201002300F5E636 /* FlawedCli */,
+				A277040E2201088C00F5E636 /* FlawedCliWrapper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A277040D2201088C00F5E636 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A295CC2421F5A3810079BBB9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,11 +391,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A27703F12201002300F5E636 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2770404220101B300F5E636 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A277040B2201088C00F5E636 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A295CC2221F5A3810079BBB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A295CC2B21F5A3810079BBB9 /* ViewController.swift in Sources */,
+				A295CC2B21F5A3810079BBB9 /* CompileViewController.swift in Sources */,
+				A2E1511C21FFB5B300FDDAA6 /* EvaluateViewController.swift in Sources */,
 				A295CC2921F5A3810079BBB9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,7 +420,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2BAB48C21F30C86000BB287 /* Grammar.swift in Sources */,
+				A2E1511821FD318C00FDDAA6 /* Base.swift in Sources */,
+				A2BAB48C21F30C86000BB287 /* Parse.swift in Sources */,
+				A2E1511A21FD3A8700FDDAA6 /* Gen.swift in Sources */,
 				A2BAB48E21F42D1D000BB287 /* Token.swift in Sources */,
 				A27CCE9921F91CA3007E6DBC /* Eval.swift in Sources */,
 			);
@@ -252,6 +431,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A27704162201089700F5E636 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2BAB47021F30C6F000BB287 /* Flawed */;
+			targetProxy = A27704152201089700F5E636 /* PBXContainerItemProxy */;
+		};
+		A27704182201089900F5E636 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A27703F42201002300F5E636 /* FlawedCli */;
+			targetProxy = A27704172201089900F5E636 /* PBXContainerItemProxy */;
+		};
+		A277041E2201097000F5E636 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2BAB47021F30C6F000BB287 /* Flawed */;
+			targetProxy = A277041D2201097000F5E636 /* PBXContainerItemProxy */;
+		};
 		A295CC5721F5B4660079BBB9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A2BAB47021F30C6F000BB287 /* Flawed */;
@@ -271,6 +465,75 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A27703FA2201002300F5E636 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+					"@executable_path/../Frameworks/Flawed.framework/Versions/Current/Frameworks",
+				);
+				PRODUCT_NAME = FlawedCli;
+				SKIP_INSTALL = YES;
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		A27703FB2201002300F5E636 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+					"@executable_path/../Frameworks/Flawed.framework/Versions/Current/Frameworks",
+				);
+				PRODUCT_NAME = FlawedCli;
+				SKIP_INSTALL = YES;
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		A27704132201088C00F5E636 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FlawedCliBundle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = cowsay.FlawedCliBundle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		A27704142201088C00F5E636 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FlawedCliBundle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = cowsay.FlawedCliBundle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		A295CC4921F5A3830079BBB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -433,6 +696,7 @@
 		A2BAB48621F30C6F000BB287 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -460,6 +724,7 @@
 		A2BAB48721F30C6F000BB287 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -486,6 +751,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A27703F92201002300F5E636 /* Build configuration list for PBXNativeTarget "FlawedCli" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A27703FA2201002300F5E636 /* Debug */,
+				A27703FB2201002300F5E636 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A27704122201088C00F5E636 /* Build configuration list for PBXNativeTarget "FlawedCliWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A27704132201088C00F5E636 /* Debug */,
+				A27704142201088C00F5E636 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A295CC4F21F5A3830079BBB9 /* Build configuration list for PBXNativeTarget "FlawedTool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
